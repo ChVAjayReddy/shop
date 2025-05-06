@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+<h1>Shopping Cart </h1>
+<div id="image">
+    <section id="img1">        
+        <table>
+            <tr>
+              <th><img src="71d7rfSl0wL._AC_UF1000,1000_QL80_.jpg" width="400px" height="350px"></th>
+            </tr>
+            <tr>
+              <td>iPhone 16 Max</td>
+            </tr>
+            <tr>
+                <td><button id="negative"> &#8722;</button>              
+                <span>&#8377;</span>56000
+                <button id="positive"> &#43;</button></td>
+            </tr>
+          </table>
+    </section>
+    <section id="img2">        
+        <table>
+            <tr>
+              <th><img src="81I3w4J6yjL._AC_UF1000,1000_QL80_.jpg" width="400px" height="350px"></th>              
+            </tr>
+            <tr>
+              <td>Samsung Galaxy</td>            
+            </tr>
+            <tr>
+                <td><button id="negative1"> &#8722;</button>              
+                <span>&#8377;</span>50000            
+            <button id="positive1"> &#43;</button></td>
+            </tr>
+          </table>
+    </section>
+</div>
+<div id="cart">
+    <!-- <p id="appvalu">Apple Mobile Value=0</p>
+    <p id="samvalu">Samsung Mobile  Value=0</p>
+    <p id="totalvalu">Total Value=0</p> -->
+    <table id="tablecart"> 
+      <tr>
+        <th id="num1">No of Apple mobiles=0  </th>
+        <th id="num2">No of Samsung mobiles=0 </th>
+        <th   id="final"rowspan="2">Total Value=0</td>
+      </tr>
+      <tr>
+        <td id="cost1">Apple Mobiles Value=0</td>
+        <td id="cost2">Samsung Mobile  Value=0</td>
+        
+      </tr>
+    
+
+    </table>
+
+</div>    
+</body>
+<style>    
+    h1{
+        padding: 50px;
+        background-color: antiquewhite;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        border-radius: 10px;            
+    }
+    h1.solid {border-style: solid; background-color: Red;}
+    table, td,th {
+  border: 0px solid;
+  text-align: center;
+}
+#tablecart, th, td{
+ 
+  border: 0px solid;
+  border-collapse: collapse;
+}
+#tablecart{
+  width: 100%;
+  border-collapse: collapse;
+  height: 80px;
+  border-radius: 10px;
+}
+
+
+#image {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+#cart{
+    padding: 50px;
+        background-color: antiquewhite;
+        align-items: center;
+        text-align: center;
+       margin: auto;
+       font-weight: bold;      
+}
+</style>
+<script>
+    let img1neg=document.getElementById("negative");
+    let imh1pos=document.getElementById("positive");
+    let applecart=0;
+    let applevalue=0;
+    let samsungvalue=0;
+    let totalvalue=0;  
+    imh1pos.addEventListener("click",appleposcart);
+     function appleposcart(){
+        applecart++;
+         applevalue= applecart * 56000 ;
+        document.getElementById("cost1").innerHTML="Apple Mobile Value="+ applevalue;
+        document.getElementById("num1").innerHTML="No of Apple mobilese="+ applecart;
+        totalv();
+     }
+     img1neg.addEventListener("click",applenegcart);
+     function applenegcart(){
+        if(applecart==0)
+     {return;}
+     else{
+        applecart--;
+         applevalue= applecart * 56000 ;
+        document.getElementById("cost1").innerHTML="Apple Mobile Value="+ applevalue;
+        document.getElementById("num1").innerHTML="No of Apple mobilese="+ applecart;
+    }
+    totalv();}
+    let img2neg=document.getElementById("negative1");
+    let imh2pos=document.getElementById("positive1");
+    let samsungcart=0;
+    imh2pos.addEventListener("click",samsungposcart);
+     function samsungposcart(){
+       samsungcart++;
+         samsungvalue= samsungcart * 50000 ;
+        document.getElementById("cost2").innerHTML="Samsung Mobile  Value="+ samsungvalue;
+        document.getElementById("num2").innerHTML="No of Samsung mobilese="+ samsungcart;
+        totalv();
+     }
+     img2neg.addEventListener("click",samsungnegcart);
+     function samsungnegcart(){
+        if(samsungcart==0)
+     {return;}
+     else{
+        samsungcart--;
+        samsungvalue= samsungcart * 50000 ;
+        document.getElementById("cost2").innerHTML="Samsung Mobile  Value="+ samsungvalue;
+        document.getElementById("num2").innerHTML="No of Samsung mobilese="+ samsungcart;
+    }
+    totalv();}
+    function totalv(){       
+
+         totalvalue= samsungvalue + applevalue;
+        document.getElementById("final").innerHTML="Total Value="+ totalvalue;
+    }
+   </script>
+</html>
